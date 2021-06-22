@@ -1,0 +1,23 @@
+version: '3'
+services:
+
+    mysql:
+        image: mysql:latest
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: "rootpass"
+        ports:
+            - 3306:3307
+        volumes: 
+            - "./db/init.sql:/docker-entrypoint-initdb.d/1.sql"
+    
+    credscapture:
+        image: credscapture
+        restart: always
+        environment: 
+            DatabaseDSN: "sqluser:sqlpass@tcp(mysql:3306)/credentials"
+            BIND: "0.0.0.0:8080"
+        ports:
+            - 8080:8080
+        depends_on:
+            - "mysql"
