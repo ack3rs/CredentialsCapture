@@ -4,7 +4,6 @@ A simple REST End point to save some User Credentials a database done as a codin
 
 ![Diagram](diagram.png)
 
-
 ### Testing
 
 # To Run the Unit Tests
@@ -21,6 +20,15 @@ When the system is running the following can be used as an Intergration test.
 # TODO:
 * Increase the Unit Test coverage
 * Add Unit Tests to the Controllers 
+
+### Documentation 
+
+To generate the Swagger documenation from the project 
+
+```
+./generatedocs.sh
+```
+
 
 ### Running
 
