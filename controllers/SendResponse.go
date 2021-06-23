@@ -7,6 +7,7 @@ import (
 
 func SendResponse(w http.ResponseWriter, code int, payload interface{}) {
 	out, _ := json.Marshal(payload)
+	w.WriteHeader(code)
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(out)
 }
